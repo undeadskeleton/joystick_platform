@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://doiygcmgeq1bl"]
+
+[ext_resource type="Texture2D" uid="uid://qndesy212ycp" path="res://icon.svg" id="1_fxbd7"]
+[ext_resource type="PackedScene" uid="uid://ckbcflbdqtgpg" path="res://joystick_platform/scene/player.tscn" id="2_4cbax"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g7b7a"]
+distance = -649.0
+
+[node name="stage" type="Node2D" unique_id=1120474911]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1024553476]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=840578587]
+shape = SubResource("WorldBoundaryShape2D_g7b7a")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1167996303]
+position = Vector2(584.5, 651.5)
+scale = Vector2(16.804688, -0.07031238)
+texture = ExtResource("1_fxbd7")
+
+[node name="Player" parent="." unique_id=1946696683 instance=ExtResource("2_4cbax")]
+position = Vector2(452, 334)

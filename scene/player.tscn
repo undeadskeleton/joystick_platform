@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ckbcflbdqtgpg"]
+
+[ext_resource type="Texture2D" uid="uid://b3mn63wkcr5ed" path="res://joystick_platform/joystick assets/icon.svg" id="1_6l2d8"]
+[ext_resource type="Script" uid="uid://dqisqo62ki4kd" path="res://joystick_platform/scrpts/player/player.gd" id="1_um4lu"]
+[ext_resource type="PackedScene" uid="uid://bikfojqn4xvwm" path="res://joystick_platform/scene/virtual_joystick.tscn" id="2_cpogd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7b7a"]
+radius = 54.0
+height = 128.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1946696683]
+script = ExtResource("1_um4lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=658398209]
+texture = ExtResource("1_6l2d8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=773010317]
+shape = SubResource("CapsuleShape2D_g7b7a")
+metadata/_edit_group_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1637346869]
+
+[node name="Virtual_Joystick" parent="CanvasLayer" unique_id=870790588 instance=ExtResource("2_cpogd")]
+position = Vector2(143, 524)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=411858525]
+zoom = Vector2(1.2, 1.2)
