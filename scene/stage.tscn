@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://doiygcmgeq1bl"]
 
 [ext_resource type="Texture2D" uid="uid://qndesy212ycp" path="res://icon.svg" id="1_fxbd7"]
-[ext_resource type="PackedScene" uid="uid://ckbcflbdqtgpg" path="res://joystick_platform/scene/player.tscn" id="2_4cbax"]
+[ext_resource type="PackedScene" uid="uid://ckbcflbdqtgpg" path="res://scene/player.tscn" id="2_4cbax"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g7b7a"]
 distance = -649.0

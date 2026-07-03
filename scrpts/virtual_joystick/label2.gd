@@ -1,7 +1,7 @@
 extends Label
-@export var joystick : VirJoystick
-@export var knob : joyKnob
 
+@onready var joystick : VirJoystick = $".."
+@onready var knob : joyKnob = $"../knob"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -9,4 +9,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = "posVector:"+str(joystick.posVector)
+	text = "parent to mouse:" + str(joystick.global_position.angle_to_point(get_global_mouse_position()))

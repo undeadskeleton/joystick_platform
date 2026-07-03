@@ -15,14 +15,21 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	parent.button_action = pressing
 	if pressing:
-		print("parent to mouse : ",parent.global_position.distance_to(get_global_mouse_position()))
-		"""
 		if parent.global_position.distance_to(get_global_mouse_position()) <= maxLength:
 			global_position = get_global_mouse_position()
+		else:
+			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
+			global_position.x = parent.global_position.x + cos(angle) * maxLength
+			global_position.y = parent.global_position.y + sin(angle) * maxLength
+		calculateVector()
 	else:
-		global_position = lerp(global_position,parent.global_position,delta*60)
-"""
+		global_position = lerp(global_position,parent.global_position,delta*50)
 
+func calculateVector()-> void:
+	if abs(global_position.x-parent.global_position.x) >= deadZone:
+		parent.posVector.x = global_position.x-parent.global_position.x/maxLength
+	if abs(global_position.y-parent.global_position.y) >= deadZone:
+		parent.posVector.y = global_position.y-parent.global_position.y/maxLength
 
 
 func _on_button_button_down() -> void:
