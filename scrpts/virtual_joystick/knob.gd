@@ -24,12 +24,15 @@ func _process(delta: float) -> void:
 		calculateVector()
 	else:
 		global_position = lerp(global_position,parent.global_position,delta*50)
+		parent.posVector = Vector2(0,0)
 
 func calculateVector()-> void:
 	if abs(global_position.x-parent.global_position.x) >= deadZone:
-		parent.posVector.x = global_position.x-parent.global_position.x/maxLength
+		print("x: ",(global_position.x-parent.global_position.x)/maxLength)
+		parent.posVector.x = (global_position.x-parent.global_position.x)/maxLength
 	if abs(global_position.y-parent.global_position.y) >= deadZone:
-		parent.posVector.y = global_position.y-parent.global_position.y/maxLength
+		print("y: ",(global_position.y-parent.global_position.y)/maxLength)
+		parent.posVector.y = (global_position.y-parent.global_position.y)/maxLength
 
 
 func _on_button_button_down() -> void:

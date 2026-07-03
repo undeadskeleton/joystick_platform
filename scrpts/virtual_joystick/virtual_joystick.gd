@@ -1,6 +1,6 @@
 extends Node2D
 class_name VirJoystick
-var posVector
+var posVector : Vector2
 var button_action : bool
 
 # Called when the node enters the scene tree for the first time.
