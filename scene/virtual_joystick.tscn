@@ -19,14 +19,16 @@ script = ExtResource("4_78fqp")
 parent = NodePath("..")
 
 [node name="Button" type="Button" parent="." unique_id=825560537]
-self_modulate = Color(1, 1, 1, 0.08235294)
+self_modulate = Color(1, 1, 1, 0)
 offset_left = -99.0
 offset_top = -101.0
 offset_right = -70.71429
 offset_bottom = -72.42857
 scale = Vector2(7, 7)
+focus_mode = 0
 
 [node name="Label" type="Label" parent="." unique_id=578697844 node_paths=PackedStringArray("joystick", "knob")]
+visible = false
 offset_left = -66.0
 offset_top = -178.0
 offset_right = 52.0

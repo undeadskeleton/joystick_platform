@@ -33,7 +33,8 @@ func calculateVector()-> void:
 	if abs(global_position.y-parent.global_position.y) >= deadZone:
 		print("y: ",(global_position.y-parent.global_position.y)/maxLength)
 		parent.posVector.y = (global_position.y-parent.global_position.y)/maxLength
-
+		
+	#Map the vector strenght directly to godot input system
 
 func _on_button_button_down() -> void:
 	pressing= true
