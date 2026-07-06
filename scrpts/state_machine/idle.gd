@@ -9,7 +9,7 @@ func physics_process(delta : float)-> void:
 	var player = statemachine.player_ref
 	if !player.is_on_floor():
 		player.velocity.y += 980 * delta
-	
+
 	if player.direction.x:
 		statemachine.changeState("walk")
 

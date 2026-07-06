@@ -8,6 +8,9 @@ var currentState : StateInterface
 @export var player_ref : CharacterBody2D
 var currentstatename : String
 
+#for storing the last facing direction before entering dash
+
+var last_dir : float = 1
 func _ready() -> void:
 	for child in get_children():
 		if child is StateInterface:
@@ -19,10 +22,10 @@ func _ready() -> void:
 func changeState(new_state_name)-> void:
 	if currentState:
 		currentState.exit()
-	
+
 	currentstatename = new_state_name
 	currentState = states.get(currentstatename)
-	
+
 	if currentState:
 		currentState.enter()
 	else:

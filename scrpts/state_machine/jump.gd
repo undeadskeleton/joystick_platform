@@ -9,7 +9,7 @@ func enter()-> void:
 func physics_process(delta : float)-> void:
 	var player = statemachine.player_ref
 	var direction = Input.get_axis("ui_left","ui_right")
-		
+
 	if !player.is_on_floor():
 		player.velocity.y += 980 * delta
 	else:
@@ -17,6 +17,3 @@ func physics_process(delta : float)-> void:
 			statemachine.changeState("walk")
 		else:
 			statemachine.changeState("idle")
-
-
-	

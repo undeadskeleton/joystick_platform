@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bnhyc5owqhmi" path="res://scrpts/state_machine/state_machine.gd" id="4_ct4mp"]
 [ext_resource type="Script" uid="uid://bf4l2bhgemgsj" path="res://scrpts/state_machine/walk.gd" id="5_s4jxa"]
 [ext_resource type="Script" uid="uid://dftc8ajlx3ico" path="res://scrpts/state_machine/idle.gd" id="6_oh5ij"]
+[ext_resource type="Script" uid="uid://ctuvfw0556dem" path="res://scrpts/state_machine/state_interface.gd" id="7_g2vtq"]
 [ext_resource type="Script" uid="uid://ci6hdc16msawn" path="res://scrpts/state_machine/jump.gd" id="7_hp4bs"]
 [ext_resource type="Script" uid="uid://cmxn3kg4bib5j" path="res://scrpts/state_machine/state_debug.gd" id="8_g2vtq"]
 
@@ -12,9 +13,8 @@
 radius = 54.0
 height = 128.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1946696683 node_paths=PackedStringArray("joystick")]
+[node name="Player" type="CharacterBody2D" unique_id=1946696683]
 script = ExtResource("1_um4lu")
-joystick = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=658398209]
 texture = ExtResource("1_6l2d8")
@@ -39,6 +39,10 @@ script = ExtResource("6_oh5ij")
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=956059430]
 script = ExtResource("7_hp4bs")
+
+[node name="Dash" type="Node" parent="StateMachine" unique_id=1121079954]
+script = ExtResource("7_g2vtq")
+metadata/_custom_type_script = "uid://ctuvfw0556dem"
 
 [node name="StateDebug" type="Label" parent="." unique_id=2095581105]
 offset_left = -68.0

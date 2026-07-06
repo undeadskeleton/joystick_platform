@@ -4,23 +4,20 @@ class_name StateInterface
 
 var statemachine : StateMachine
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+@export Dash_Speed : int = 200
+@export var dash_timer : float = 0.6
+var can_dash : bool = false
+var store_dir : float
 func enter()-> void:
-	pass
+	can_dash= true
 
-func process(delta : float)-> void:
-	pass
 
 func physics_process(delta : float)-> void:
-	pass
+	var player = statemachine.player_ref
+
+	if can_dash:
+		timer-= delta
+		player.velocity.x =
 
 func handle_input(event: InputEvent)-> void:
 	pass
