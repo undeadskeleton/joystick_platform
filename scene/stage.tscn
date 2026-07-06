@@ -31,7 +31,7 @@ position = Vector2(132, 526)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Player/CanvasLayer2" unique_id=989937136]
 self_modulate = Color(1, 1, 1, 0.2509804)
-position = Vector2(1259, 478)
+position = Vector2(1208, 470)
 scale = Vector2(1.5233448, 1.3568007)
 texture_normal = ExtResource("4_d8w7t")
 texture_pressed = ExtResource("4_d8w7t")
