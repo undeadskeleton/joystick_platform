@@ -43,3 +43,4 @@ self_modulate = Color(1, 1, 1, 0.24313726)
 position = Vector2(1004.99994, 488)
 scale = Vector2(0.26757804, 0.265625)
 texture_normal = ExtResource("5_vdh54")
+action = "dash"
