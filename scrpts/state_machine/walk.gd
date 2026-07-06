@@ -26,4 +26,5 @@ func handle_input(event: InputEvent)-> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		statemachine.last_dir = store_dir
 		statemachine.changeState("jump")
-	if Input.is_action_just_pressed("dash")
+	if Input.is_action_just_pressed("dash"):
+		statemachine.changeState("dash")
