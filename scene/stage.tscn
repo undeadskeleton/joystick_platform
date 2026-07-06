@@ -32,15 +32,17 @@ position = Vector2(132, 526)
 
 [node name="Jump" type="TouchScreenButton" parent="Player/CanvasLayer2" unique_id=989937136]
 self_modulate = Color(1, 1, 1, 0.2509804)
-position = Vector2(1208, 470)
+position = Vector2(986, 491)
 scale = Vector2(1.5233448, 1.3568007)
 texture_normal = ExtResource("4_d8w7t")
 texture_pressed = ExtResource("4_d8w7t")
 action = "ui_accept"
+visibility_mode = 1
 
 [node name="Dash" type="TouchScreenButton" parent="Player/CanvasLayer2" unique_id=1265348220]
 self_modulate = Color(1, 1, 1, 0.24313726)
-position = Vector2(1004.99994, 488)
+position = Vector2(794, 484)
 scale = Vector2(0.26757804, 0.265625)
 texture_normal = ExtResource("5_vdh54")
 action = "dash"
+visibility_mode = 1

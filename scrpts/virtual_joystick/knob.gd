@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 	if pressing:
 
 		if parent.global_position.distance_to(get_global_mouse_position()) <= maxLength:
-			print("pressing")
 			global_position = get_global_mouse_position()
 		else:
 			var angle = parent.global_position.angle_to_point(get_global_mouse_position())
@@ -25,7 +24,6 @@ func _process(delta: float) -> void:
 			global_position.y = parent.global_position.y + sin(angle) * maxLength
 		calculateVector()
 	else:
-		print("not pressing")
 		global_position = lerp(global_position,parent.global_position,delta*50)
 		parent.posVector = Vector2(0,0)
 
