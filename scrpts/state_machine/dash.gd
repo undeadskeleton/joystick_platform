@@ -14,9 +14,17 @@ func physics_process(delta : float)-> void:
 	if can_dash:
 		dash_timer-=delta
 		player.velocity.x = Dash_SPEED * statemachine.last_dir
-
-func handle_input(event : InputEvent)-> void:
-	if dash_timer<= 0.0:
-		if Input.is_action_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
-			statemachine.changeState("walk")
+		if dash_timer <= 0.0:
+			can_dash = false
+	if player.velocity.x ==0:
 		statemachine.changeState("idle")
+	print("dash_timer:",dash_timer)
+func handle_input(event : InputEvent)-> void:
+	var player = statemachine.player_ref
+	if dash_timer <= 0.0:
+		"""
+		if player.velocity.x ==0:
+			statemachine.changeState("idle")
+			"""
+		if (Input.is_action_pressed("ui_right") or Input.is_action_just_pressed("ui_left")) or player.velocity.x >0:
+				statemachine.changeState("walk")
