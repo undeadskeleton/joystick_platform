@@ -11,12 +11,22 @@ func enter()-> void:
 
 func physics_process(delta : float)-> void:
 	var player = statemachine.player_ref
+	
 	if can_dash:
 		dash_timer-=delta
 		player.velocity.x = Dash_SPEED * statemachine.last_dir
+	else:
+		player.velocity.x = move_toward(player.velocity.x,0,Dash_SPEED)
+	
+	#if dash_timer <= 0.0:
+		#can_dash = false
+	#print("dash_timer:",dash_timer," can_dash:",can_dash)
+	
 
 func handle_input(event : InputEvent)-> void:
-	if dash_timer<= 0.0:
+	var player = statemachine.player_ref
+	if dash_timer <= 0.0:
+		if player.velocity.x == 0:
+			statemachine.changeState("idle")
 		if Input.is_action_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 			statemachine.changeState("walk")
-		statemachine.changeState("idle")

@@ -42,6 +42,7 @@ script = ExtResource("7_hp4bs")
 
 [node name="Dash" type="Node" parent="StateMachine" unique_id=1027076962]
 script = ExtResource("7_g2vtq")
+dash_timer = 0.6
 
 [node name="StateDebug" type="Label" parent="." unique_id=2095581105]
 offset_left = -68.0
