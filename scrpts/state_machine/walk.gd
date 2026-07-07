@@ -6,20 +6,25 @@ var direction : int
 var store_dir : float
 func physics_process(delta : float)-> void:
 	var player = statemachine.player_ref
-	
+
 	if !player.is_on_floor():
 		player.velocity.x += 980 * delta
-		direction = Input.get_axis("ui_left","ui_right")
-		print("Direction : ",direction)
-		store_dir  = 0.0
-		if player.direction.x or direction:
+
+	direction = Input.get_axis("ui_left","ui_right")
+	print("Direction : ",direction)
+	store_dir  = 0.0
+
+	if player.direction.x or direction:
 			if player.direction.x:
+				print("has direction:",player.direction.x)
 				player.velocity.x = Speed * player.direction.x
 				store_dir = player.velocity.x
-			else :
+			elif direction :
 				player.velocity.x = direction * Speed
 				store_dir = direction
-		else:
+	else:
+		player.velocity.x = move_toward(player.velocity.x,0,Speed)
+	if player.velocity.x==0:
 			statemachine.last_dir = store_dir
 			statemachine.changeState("idle")
 

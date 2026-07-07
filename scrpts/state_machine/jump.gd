@@ -16,4 +16,6 @@ func physics_process(delta : float)-> void:
 		if direction or player.direction.x:
 			statemachine.changeState("walk")
 		else:
+			player.velocity.x = move_toward(player.velocity.x,0,200)
+	if player.velocity.x==0:
 			statemachine.changeState("idle")
