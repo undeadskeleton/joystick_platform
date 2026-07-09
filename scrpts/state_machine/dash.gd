@@ -30,3 +30,8 @@ func handle_input(event : InputEvent)-> void:
 			statemachine.changeState("idle")
 		if Input.is_action_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
 			statemachine.changeState("walk")
+		if dash_timer <= 0.0:
+			can_dash = false
+	if player.velocity.x ==0:
+		statemachine.changeState("idle")
+	print("dash_timer:",dash_timer)
