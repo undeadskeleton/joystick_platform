@@ -9,4 +9,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text ="last_dir:"+ str(statemachine.last_dir)+" "+ str(statemachine.currentStateName())
+	text = str(statemachine.currentStateName())
