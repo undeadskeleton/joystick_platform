@@ -11,27 +11,30 @@ func physics_process(delta : float)-> void:
 		player.velocity.x += 980 * delta
 
 	direction = Input.get_axis("ui_left","ui_right")
-	print("Direction : ",direction)
 	store_dir  = 0.0
 
 	if player.direction.x or direction:
-			if player.direction.x:
-				print("has direction:",player.direction.x)
-				player.velocity.x = Speed * player.direction.x
-				store_dir = player.velocity.x
-			elif direction :
-				player.velocity.x = direction * Speed
-				store_dir = direction
-	else:
-		player.velocity.x = move_toward(player.velocity.x,0,Speed)
-	if player.velocity.x==0:
+		if player.direction.x:
+			player.velocity.x = Speed * player.direction.x
+			store_dir = player.direction.x
 			statemachine.last_dir = store_dir
-			statemachine.changeState("idle")
+		elif direction :
+			player.velocity.x = direction * Speed
+			store_dir = direction
+			statemachine.last_dir = store_dir
+	else:
+		player.velocity.x = move_toward(player.velocity.x,0,50)
+	
+	if player.velocity.x == 0:
+		#print("stored_dir:",store_dir)
+		#statemachine.last_dir = store_dir
+		statemachine.changeState("idle")
 
 func handle_input(event: InputEvent)-> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		statemachine.last_dir = store_dir
+		#statemachine.last_dir = store_dir
 		statemachine.changeState("jump")
 	if Input.is_action_just_pressed("dash"):
-		print("Dash is pressed : Walk")
+		#statemachine.last_dir = store_dir
 		statemachine.changeState("dash")
+		

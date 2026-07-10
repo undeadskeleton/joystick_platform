@@ -42,11 +42,12 @@ script = ExtResource("7_hp4bs")
 
 [node name="Dash" type="Node" parent="StateMachine" unique_id=1027076962]
 script = ExtResource("7_g2vtq")
-dash_timer = 0.6
+Dash_SPEED = 500
 
 [node name="StateDebug" type="Label" parent="." unique_id=2095581105]
 offset_left = -68.0
 offset_top = -128.0
 offset_right = 66.0
 offset_bottom = -83.0
+theme_override_font_sizes/font_size = 40
 script = ExtResource("8_g2vtq")

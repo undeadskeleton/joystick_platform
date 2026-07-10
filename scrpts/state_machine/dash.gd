@@ -3,35 +3,31 @@ extends StateInterface
 class_name DashState
 
 @export var Dash_SPEED : int = 200
-@export var dash_timer : float
+@export var dash_timer : float = 0.6
 var can_dash : bool = false
+var dash_duration : float 
 
 func enter()-> void:
 	can_dash = true
+	dash_duration = dash_timer
 
 func physics_process(delta : float)-> void:
 	var player = statemachine.player_ref
 	
 	if can_dash:
-		dash_timer-=delta
-		player.velocity.x = Dash_SPEED * statemachine.last_dir
-	else:
-		player.velocity.x = move_toward(player.velocity.x,0,Dash_SPEED)
+		dash_duration-=delta
+		player.velocity.x = statemachine.last_dir * Dash_SPEED
+		if dash_duration <=0:
+			player.velocity.x = move_toward(player.velocity.x,0,50)
+			statemachine.changeState("idle")
 	
-	#if dash_timer <= 0.0:
-		#can_dash = false
-	#print("dash_timer:",dash_timer," can_dash:",can_dash)
 	
 
 func handle_input(event : InputEvent)-> void:
 	var player = statemachine.player_ref
-	if dash_timer <= 0.0:
-		if player.velocity.x == 0:
-			statemachine.changeState("idle")
-		if Input.is_action_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
+	if dash_duration <= 0.0:
+		if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 			statemachine.changeState("walk")
-		if dash_timer <= 0.0:
-			can_dash = false
-	if player.velocity.x ==0:
-		statemachine.changeState("idle")
-	print("dash_timer:",dash_timer)
+		
+func exit()-> void:
+	can_dash = false
