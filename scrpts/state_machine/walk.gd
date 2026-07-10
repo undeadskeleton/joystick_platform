@@ -24,7 +24,7 @@ func physics_process(delta : float)-> void:
 			statemachine.last_dir = store_dir
 	else:
 		player.velocity.x = move_toward(player.velocity.x,0,50)
-	
+
 	if player.velocity.x == 0:
 		#print("stored_dir:",store_dir)
 		#statemachine.last_dir = store_dir
@@ -37,4 +37,3 @@ func handle_input(event: InputEvent)-> void:
 	if Input.is_action_just_pressed("dash"):
 		#statemachine.last_dir = store_dir
 		statemachine.changeState("dash")
-		
