@@ -17,8 +17,11 @@ func physics_process(delta : float)-> void:
 	if can_dash:
 		dash_duration-=delta
 		player.velocity.x = statemachine.last_dir * Dash_SPEED
-		if dash_duration <=0:
-			player.velocity.x = move_toward(player.velocity.x,0,50)
+		if dash_duration <= 0.0:
+			can_dash  = false
+	elif !can_dash:
+		player.velocity.x = move_toward(player.velocity.x,0,50)
+		if player.velocity.x == 0:
 			statemachine.changeState("idle")
 
 
@@ -28,6 +31,3 @@ func handle_input(event : InputEvent)-> void:
 	if dash_duration <= 0.0:
 		if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 			statemachine.changeState("walk")
-
-func exit()-> void:
-	can_dash = false
