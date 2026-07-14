@@ -8,8 +8,8 @@ func physics_process(delta : float)-> void:
 	var player = statemachine.player_ref
 
 	if !player.is_on_floor():
-		player.velocity.x += 980 * delta
-
+		statemachine.changeState("fall")
+		
 	direction = Input.get_axis("ui_left","ui_right")
 	store_dir  = 0.0
 
@@ -26,14 +26,10 @@ func physics_process(delta : float)-> void:
 		player.velocity.x = move_toward(player.velocity.x,0,50)
 
 	if player.velocity.x == 0:
-		#print("stored_dir:",store_dir)
-		#statemachine.last_dir = store_dir
 		statemachine.changeState("idle")
 
 func handle_input(event: InputEvent)-> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		#statemachine.last_dir = store_dir
 		statemachine.changeState("jump")
 	if Input.is_action_just_pressed("dash"):
-		#statemachine.last_dir = store_dir
 		statemachine.changeState("dash")

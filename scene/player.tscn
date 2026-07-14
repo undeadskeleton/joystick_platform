@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dftc8ajlx3ico" path="res://scrpts/state_machine/idle.gd" id="6_oh5ij"]
 [ext_resource type="Script" uid="uid://bepftctunusne" path="res://scrpts/state_machine/dash.gd" id="7_g2vtq"]
 [ext_resource type="Script" uid="uid://ci6hdc16msawn" path="res://scrpts/state_machine/jump.gd" id="7_hp4bs"]
+[ext_resource type="Script" uid="uid://0xp4sjyi0j61" path="res://scrpts/state_machine/fall.gd" id="8_2fvbb"]
 [ext_resource type="Script" uid="uid://cmxn3kg4bib5j" path="res://scrpts/state_machine/state_debug.gd" id="8_g2vtq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7b7a"]
@@ -43,6 +44,9 @@ script = ExtResource("7_hp4bs")
 [node name="Dash" type="Node" parent="StateMachine" unique_id=1027076962]
 script = ExtResource("7_g2vtq")
 Dash_SPEED = 500
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1093285273]
+script = ExtResource("8_2fvbb")
 
 [node name="StateDebug" type="Label" parent="." unique_id=2095581105]
 visible = false
