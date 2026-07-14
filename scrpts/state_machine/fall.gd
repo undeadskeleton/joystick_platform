@@ -4,7 +4,7 @@ class_name FallState
 
 func physics_process(delta : float)-> void:
 	var player = statemachine.player_ref
-	
+
 	player.velocity.y += 980 * delta
 	if player.is_on_floor():
 		player.velocity.x = move_toward(player.velocity.x,0,50)
@@ -13,3 +13,5 @@ func physics_process(delta : float)-> void:
 			return
 		if player.velocity.x == 0:
 			statemachine.changeState("idle")
+		if Input.is_action_just_pressed("ui_accept"):
+			statemachine.changeState("jump")

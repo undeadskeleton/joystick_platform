@@ -49,7 +49,6 @@ Dash_SPEED = 500
 script = ExtResource("8_2fvbb")
 
 [node name="StateDebug" type="Label" parent="." unique_id=2095581105]
-visible = false
 offset_left = -68.0
 offset_top = -128.0
 offset_right = 66.0

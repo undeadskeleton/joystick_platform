@@ -9,14 +9,14 @@ func physics_process(delta : float)-> void:
 
 	if !player.is_on_floor():
 		statemachine.changeState("fall")
-		
+
 	direction = Input.get_axis("ui_left","ui_right")
 	store_dir  = 0.0
 
-	if player.direction.x or direction:
-		if player.direction.x:
-			player.velocity.x = Speed * player.direction.x
-			store_dir = player.direction.x
+	if player.joy_direction.x or direction:
+		if player.joy_direction.x:
+			player.velocity.x = Speed * player.joy_direction.x
+			store_dir = player.joy_direction.x
 			statemachine.last_dir = store_dir
 		elif direction :
 			player.velocity.x = direction * Speed
