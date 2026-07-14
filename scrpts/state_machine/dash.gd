@@ -2,7 +2,7 @@ extends StateInterface
 
 class_name DashState
 
-@export var Dash_SPEED : int = 200
+@export var Dash_SPEED : int = 500
 @export var dash_timer : float = 0.6
 var can_dash : bool = false
 var dash_duration : float
