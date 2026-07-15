@@ -28,11 +28,11 @@ joystick = NodePath("CanvasLayer2/Joystick")
 [node name="CanvasLayer2" type="CanvasLayer" parent="Player" unique_id=1179737287]
 
 [node name="Joystick" parent="Player/CanvasLayer2" unique_id=53262006 instance=ExtResource("3_svt74")]
-position = Vector2(132, 526)
+position = Vector2(224, 550)
 
 [node name="Jump" type="TouchScreenButton" parent="Player/CanvasLayer2" unique_id=989937136]
 self_modulate = Color(1, 1, 1, 0.2509804)
-position = Vector2(986, 491)
+position = Vector2(1257, 484.00003)
 scale = Vector2(1.5233448, 1.3568007)
 texture_normal = ExtResource("4_d8w7t")
 texture_pressed = ExtResource("4_d8w7t")
@@ -41,7 +41,7 @@ visibility_mode = 1
 
 [node name="Dash" type="TouchScreenButton" parent="Player/CanvasLayer2" unique_id=1265348220]
 self_modulate = Color(1, 1, 1, 0.24313726)
-position = Vector2(794, 484)
+position = Vector2(1042, 484)
 scale = Vector2(0.26757804, 0.265625)
 texture_normal = ExtResource("5_vdh54")
 action = "dash"
