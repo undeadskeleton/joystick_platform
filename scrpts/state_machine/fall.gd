@@ -13,5 +13,5 @@ func physics_process(delta : float)-> void:
 			return
 		if player.velocity.x == 0:
 			statemachine.changeState("idle")
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("ui_accept"):
 			statemachine.changeState("jump")

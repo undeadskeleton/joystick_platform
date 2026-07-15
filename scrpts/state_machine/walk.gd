@@ -29,7 +29,7 @@ func physics_process(delta : float)-> void:
 		statemachine.changeState("idle")
 
 func handle_input(event: InputEvent)-> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("ui_accept"):
 		statemachine.changeState("jump")
 	if Input.is_action_just_pressed("dash"):
 		statemachine.changeState("dash")
